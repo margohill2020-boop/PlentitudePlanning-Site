@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AdvisorFlow — Landing Page Prototype</title>
+  <style>
+    :root {
+      --navy: #10233f;
+      --blue: #173763;
+      --gold: #d5b15a;
+      --cream: #f7f3ec;
+      --white: #ffffff;
+      --ink: #1a2433;
+      --muted: #667085;
+      --line: #e7e1d5;
+      --shadow: 0 18px 40px rgba(16, 35, 63, 0.08);
+      --radius: 18px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.55;
+    }
+
+    h1, h2, h3, h4 {
+      margin: 0 0 12px;
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.08;
+      color: var(--navy);
+    }
+
+    p { margin: 0 0 16px; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+
+    .nav {
+      background: rgba(255,255,255,0.92);
+      border-bottom: 1px solid rgba(16,35,63,0.08);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(8px);
+      z-index: 10;
+    }
+    .nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 18px 0;
+    }
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: var(--navy);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      font-size: 15px;
+    }
+    .nav-links a { color: var(--ink); text-decoration: none; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 20px;
+      border-radius: 999px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid transparent;
+    }
+    .btn-primary { background: var(--gold); color: var(--navy); }
+    .btn-secondary { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.42); }
+    .btn-outline { background: var(--white); color: var(--navy); border-color: rgba(16,35,63,0.16); }
+    .btn-navy { background: var(--navy); color: var(--white); }
+
+    .hero {
+      padding: 58px 0 40px;
+    }
+    .hero-panel {
+      display: grid;
+      grid-template-columns: 1.06fr 0.94fr;
+      gap: 32px;
+      background: linear-gradient(135deg, rgba(16,35,63,0.97), rgba(28,58,101,0.85));
+      color: var(--white);
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .hero-copy {
+      padding: 56px 46px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .eyebrow {
+      color: #f0d58d;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+    .hero h1 {
+      color: var(--white);
+      font-size: clamp(2.4rem, 4.3vw, 4.5rem);
+      max-width: 11ch;
+      margin-bottom: 18px;
+    }
+    .hero p {
+      color: rgba(255,255,255,0.86);
+      font-size: 17px;
+      max-width: 62ch;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+    .hero-media {
+      min-height: 520px;
+      background:
+        linear-gradient(to left, rgba(9,18,35,0.18), rgba(9,18,35,0.34)),
+        url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+    }
+
+    .trust-row {
+      margin-top: -18px;
+      position: relative;
+      z-index: 2;
+    }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .trust-card {
+      background: var(--white);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 20px 18px;
+      text-align: center;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .section { padding: 88px 0; }
+    .section-white { background: var(--white); }
+    .section-light { background: var(--cream); }
+    .section-navy { background: var(--navy); color: rgba(255,255,255,0.88); }
+    .section-navy h2, .section-navy h3 { color: var(--white); }
+    .section-label {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+    .section-heading {
+      font-size: clamp(2rem, 3vw, 3.2rem);
+      max-width: 14ch;
+      margin-bottom: 18px;
+    }
+    .section-intro {
+      color: var(--muted);
+      max-width: 70ch;
+      font-size: 17px;
+    }
+    .section-navy .section-intro { color: rgba(255,255,255,0.78); }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 34px;
+    }
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+      border: 1px solid rgba(16,35,63,0.06);
+    }
+    .card p { color: var(--muted); }
+
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 34px;
+    }
+    .step {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 24px;
+    }
+    .step-no {
+      width: 42px; height: 42px; border-radius: 999px;
+      background: rgba(213,177,90,0.18);
+      color: #f4da92;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-weight: 700; margin-bottom: 14px;
+    }
+
+    .tiers {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 26px;
+      margin-top: 36px;
+    }
+    .tier {
+      background: var(--white);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 34px;
+      border: 1px solid rgba(16,35,63,0.08);
+    }
+    .tier h3 { font-size: 2rem; }
+    .tier ul { padding-left: 18px; color: var(--muted); }
+    .tier li { margin-bottom: 10px; }
+    .tag {
+      display: inline-block;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: #f5edd9;
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .quote-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 34px;
+    }
+    .quote {
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 26px;
+      color: var(--ink);
+    }
+    .quote strong { display: block; margin-top: 16px; color: var(--navy); }
+
+    .cta-panel {
+      background: linear-gradient(180deg, #fff9ed, #fffaf4);
+      border: 1px solid rgba(213,177,90,0.26);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 46px;
+      text-align: center;
+    }
+    .cta-panel h2 {
+      font-size: clamp(2rem, 3vw, 3rem);
+      margin-bottom: 16px;
+    }
+    .cta-panel p {
+      max-width: 62ch;
+      margin: 0 auto 22px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+    .cta-actions {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    footer {
+      background: #0d1d34;
+      color: rgba(255,255,255,0.78);
+      padding: 58px 0 28px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.8fr 0.8fr 1fr;
+      gap: 28px;
+      margin-bottom: 24px;
+    }
+    footer h4 {
+      color: var(--white);
+      font-size: 1rem;
+      margin-bottom: 14px;
+      font-family: Inter, sans-serif;
+    }
+    footer a {
+      color: rgba(255,255,255,0.78);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 16px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 980px) {
+      .hero-panel,
+      .trust-grid,
+      .grid-3,
+      .how-grid,
+      .tiers,
+      .quote-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-copy { padding: 40px 28px; }
+      .hero-media { min-height: 300px; }
+      .section { padding: 68px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container">
+      <a class="brand" href="#">ADVISORFLOW</a>
+      <nav class="nav-links">
+        <a href="#offer">Offer</a>
+        <a href="#how">How It Works</a>
+        <a href="#tiers">Plans</a>
+        <a href="#contact">Apply</a>
+      </nav>
+      <a class="btn btn-navy" href="#contact">Request Access</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-panel">
+          <div class="hero-copy">
+            <div class="eyebrow">Built for Independent Financial Advisors</div>
+            <h1>Exclusive Monthly Access to Qualified Inbound Leads</h1>
+            <p>AdvisorFlow helps independent financial advisors grow with niche-targeted monthly lead delivery — designed to provide a more predictable pipeline of qualified prospects without building the lead system yourself.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#contact">Request Access</a>
+              <a class="btn btn-secondary" href="#tiers">View Subscription Plans</a>
+            </div>
+          </div>
+          <div class="hero-media" aria-hidden="true"></div>
+        </div>
+
+        <div class="trust-row">
+          <div class="trust-grid">
+            <div class="trust-card">Qualified Inbound Leads</div>
+            <div class="trust-card">Niche &amp; Territory Targeting</div>
+            <div class="trust-card">Monthly Subscription Delivery</div>
+            <div class="trust-card">Built for Independent Advisors</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white" id="offer">
+      <div class="container">
+        <div class="section-label">The Offer</div>
+        <h2 class="section-heading">A Better Way to Build Advisory Pipeline</h2>
+        <p class="section-intro">AdvisorFlow is a subscription lead source for independent financial advisors who want consistent access to qualified prospects in defined niches and territories. Instead of chasing generic marketing services, advisors get structured monthly lead delivery built around real pipeline needs.</p>
+
+        <div class="grid-3">
+          <article class="card">
+            <h3>Qualified Lead Access</h3>
+            <p>Receive inbound leads that match defined targeting criteria rather than generic names with weak intent.</p>
+          </article>
+          <article class="card">
+            <h3>Niche Positioning</h3>
+            <p>Focus on high-value markets like pre-retirees and small business owners instead of broad, low-clarity audiences.</p>
+          </article>
+          <article class="card">
+            <h3>Recurring Delivery</h3>
+            <p>Build around a monthly subscription structure that supports more predictable growth and simpler planning.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light">
+      <div class="container">
+        <div class="section-label">Who It’s For</div>
+        <h2 class="section-heading">Built for Advisors Who Want Better-Fit Prospects</h2>
+        <p class="section-intro">AdvisorFlow is best suited for independent financial advisors and firms that already know how to convert the right prospect — and want a better system for consistent lead flow.</p>
+
+        <div class="grid-3">
+          <article class="card">
+            <h3>Independent Financial Advisors</h3>
+            <p>Solo advisors who want a cleaner path to growth without building a funnel from scratch.</p>
+          </article>
+          <article class="card">
+            <h3>RIA Firms With a Clear Niche</h3>
+            <p>Teams serving pre-retirees, business owners, or other well-defined client profiles.</p>
+          </article>
+          <article class="card">
+            <h3>Advisors Ready for Recurring Pipeline</h3>
+            <p>Firms that want monthly lead delivery instead of sporadic marketing experiments.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-navy" id="how">
+      <div class="container">
+        <div class="section-label">How It Works</div>
+        <h2 class="section-heading">A Simple Four-Step Lead Delivery Model</h2>
+        <p class="section-intro">AdvisorFlow is designed to keep lead generation structured, niche-specific, and subscription-based.</p>
+
+        <div class="how-grid">
+          <div class="step">
+            <div class="step-no">1</div>
+            <h3>Choose Your Niche</h3>
+            <p>Define the market you want to reach, such as pre-retirees, small business owners, or another high-value audience.</p>
+          </div>
+          <div class="step">
+            <div class="step-no">2</div>
+            <h3>Define Your Territory</h3>
+            <p>Lead flow is aligned to geography and exclusivity structure so you are not chasing broad, low-fit traffic.</p>
+          </div>
+          <div class="step">
+            <div class="step-no">3</div>
+            <h3>Receive Qualified Leads</h3>
+            <p>Inbound prospects are delivered through a structured intake process designed to improve quality and clarity.</p>
+          </div>
+          <div class="step">
+            <div class="step-no">4</div>
+            <h3>Build Recurring Pipeline</h3>
+            <p>Use monthly delivery to create more predictable advisory growth instead of one-off marketing bursts.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white" id="tiers">
+      <div class="container">
+        <div class="section-label">Subscription Plans</div>
+        <h2 class="section-heading">Simple Plans for Growing Advisory Pipeline</h2>
+        <p class="section-intro">Version 1 focuses on premium recurring access, not generic volume. Each plan is centered on niche fit, geography, and monthly delivery.</p>
+
+        <div class="tiers">
+          <div class="tier">
+            <div class="tag">Growth</div>
+            <h3>Growth Plan</h3>
+            <p>Built for advisors who want a stronger recurring lead stream without paying for full exclusivity from day one.</p>
+            <ul>
+              <li>10 qualified leads per month</li>
+              <li>Defined niche targeting</li>
+              <li>Defined geography</li>
+              <li>Recurring monthly delivery</li>
+              <li>Built for active growth-minded advisors</li>
+            </ul>
+            <a class="btn btn-outline" href="#contact">Request Growth Access</a>
+          </div>
+          <div class="tier">
+            <div class="tag">Exclusive</div>
+            <h3>Exclusive Plan</h3>
+            <p>Built for advisors who want territory protection and premium access to a more controlled lead stream.</p>
+            <ul>
+              <li>20+ qualified leads per month</li>
+              <li>Exclusive niche + territory protection</li>
+              <li>Priority delivery</li>
+              <li>Premium monthly access</li>
+              <li>Designed for firms ready to scale with confidence</li>
+            </ul>
+            <a class="btn btn-navy" href="#contact">Request Exclusive Access</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light">
+      <div class="container">
+        <div class="section-label">Why AdvisorFlow</div>
+        <h2 class="section-heading">More Credible Than Generic Lead Selling</h2>
+        <div class="quote-grid">
+          <div class="quote">
+            <p>Lead delivery is structured around niche fit and monthly access, not random, low-intent lists.</p>
+            <strong>Qualified Inbound Positioning</strong>
+          </div>
+          <div class="quote">
+            <p>The model is designed for independent advisors who need better pipeline consistency, not vague “marketing help.”</p>
+            <strong>Advisor-Focused Business Model</strong>
+          </div>
+          <div class="quote">
+            <p>Territory and niche framing make the offer more premium, more defensible, and easier to sell.</p>
+            <strong>Built for Premium Retention</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white" id="contact">
+      <div class="container">
+        <div class="cta-panel">
+          <h2>Request Early Access</h2>
+          <p>If you’re an independent financial advisor interested in qualified monthly lead access, request early access and we’ll follow up to discuss niche fit, territory, and subscription options.</p>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="#">Request Access</a>
+            <a class="btn btn-outline" href="#">Book Intro Call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>AdvisorFlow</h4>
+          <p>Subscription-based inbound lead access for independent financial advisors.</p>
+        </div>
+        <div>
+          <h4>Offer</h4>
+          <a href="#offer">What It Is</a>
+          <a href="#how">How It Works</a>
+          <a href="#tiers">Plans</a>
+        </div>
+        <div>
+          <h4>Advisor Fit</h4>
+          <a href="#">Independent Advisors</a>
+          <a href="#">Pre-Retiree Focus</a>
+          <a href="#">Business Owner Niches</a>
+        </div>
+        <div>
+          <h4>Next Step</h4>
+          <a href="#contact">Request Access</a>
+          <a href="#contact">Book Intro Call</a>
+        </div>
+      </div>
+      <div class="copyright">AdvisorFlow prototype — for concept validation and offer design.</div>
+    </div>
+  </footer>
+</body>
+</html>
