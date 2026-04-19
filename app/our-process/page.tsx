@@ -13,7 +13,7 @@ export default function OurProcessPage() {
     <>
       <Header />
       <main>
-        <SimpleHero label="Our process" title="How Plentitude Planning works" intro="A clearer view into the planning process, from first conversation through ongoing guidance." />
+        <SimpleHero label="Our process" title="How Plentitude Planning works" intro="A clearer, more premium view into the planning process, from first conversation through ongoing guidance." />
         <section className="section sectionWhite">
           <div className="container">
             <div className="processGrid">

@@ -83,9 +83,9 @@ export function Header() {
         </Link>
         <div className="navLinks">
           <Link href="/services">Services</Link>
+          <Link href="/our-process">Our Process</Link>
           <Link href="/pricing">Pricing</Link>
           <Link href="/resources">Resources</Link>
-          <Link href="/referrals">Referrals</Link>
           <Link href="/contact">Contact</Link>
         </div>
         <Link className="btn btnPrimary" href="https://calendly.com/margohill">Book a strategy session</Link>
@@ -433,18 +433,18 @@ export function CtaSection() {
         <div className="ctaPanel">
           <div>
             <span className="sectionLabel">Get started</span>
-            <h2>Ready to turn Plentitude Planning into a full production website?</h2>
-            <p>This app now has the right page structure, pricing tiers, referral page, contact flow, and disclosure sections. The last major missing piece is your actual booking integration and final compliance review.</p>
+            <h2>Start with a strategy session, then build a plan that covers more than just investments.</h2>
+            <p>Plentitude is designed for people who want one place to think clearly about taxes, investing, retirement, real estate, cash flow, and the bigger financial decisions that shape their lives.</p>
             <div className="heroActions">
-              <Link className="btn btnPrimary" href="https://calendly.com/margohill">Start booking flow</Link>
-              <Link className="btn btnSecondary" href="/pricing">See pricing</Link>
+              <Link className="btn btnPrimary" href="https://calendly.com/margohill">Book a strategy session</Link>
+              <Link className="btn btnSecondary" href="/our-process">See our process</Link>
             </div>
           </div>
           <div className="ctaBox">
-            <h3>Recommended next live-launch steps</h3>
-            <p>1. Choose Calendly, SavvyCal, or your preferred scheduler.</p>
-            <p>2. Add your final compliance text from counsel or ADV materials.</p>
-            <p>3. Replace demo form actions with real CRM, email, and booking integrations.</p>
+            <h3>Where to go next</h3>
+            <p><Link href="/services">Explore services</Link></p>
+            <p><Link href="/pricing">Review membership pricing</Link></p>
+            <p><Link href="/resources">See calculators and planning resources</Link></p>
           </div>
         </div>
       </div>
