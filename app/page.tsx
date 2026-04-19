@@ -1,4 +1,4 @@
-import { Header, Hero, TrustRow, ServicesSection, WhySection, ProcessSection, PricingSection, FaqSection, CtaSection, ComplianceSection, Footer } from './components/Site'
+import { Header, Hero, TrustRow, ServicesSection, WhySection, ProofSection, TestimonialSection, MembershipPreviewSection, ProcessSection, PricingSection, FaqSection, CtaSection, ComplianceSection, Footer } from './components/Site'
 
 export default function HomePage() {
   return (
@@ -9,6 +9,9 @@ export default function HomePage() {
         <TrustRow />
         <ServicesSection />
         <WhySection />
+        <ProofSection />
+        <TestimonialSection />
+        <MembershipPreviewSection />
         <ProcessSection />
         <PricingSection />
         <FaqSection />

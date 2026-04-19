@@ -101,19 +101,28 @@ export function Hero() {
         <div className="heroPanel">
           <div className="heroCopy">
             <span className="eyebrow">Whole-life financial planning</span>
-            <h1>Build a financial plan that actually fits your life.</h1>
-            <p>Plentitude Planning gives you flat-fee, fiduciary financial advice across investing, taxes, retirement, real estate, equity compensation, insurance, estate planning, and cash flow. One dedicated CFP® professional, one integrated plan, no AUM fees.</p>
+            <h1>Make smarter money decisions with a plan built around your actual life.</h1>
+            <p>Plentitude Planning combines flat-fee fiduciary advice, one dedicated CFP® professional, and an integrated roadmap for investing, taxes, real estate, retirement, and major life decisions. It is planning designed to help busy households move faster with more confidence.</p>
             <div className="heroActions">
-              <Link className="btn btnPrimary" href="https://calendly.com/margohill">Start with a free strategy session</Link>
-              <Link className="btn btnSecondary" href="/services">Explore services</Link>
+              <Link className="btn btnPrimary" href="https://calendly.com/margohill">Book a free strategy session</Link>
+              <Link className="btn btnSecondary" href="/pricing">See pricing</Link>
             </div>
             <div className="heroPoints">
-              <div className="heroPoint"><strong>Flat annual fee</strong><span>Predictable pricing with no commissions or asset-based fees.</span></div>
-              <div className="heroPoint"><strong>Dedicated advisor</strong><span>Work with the same planner who knows your goals and history.</span></div>
-              <div className="heroPoint"><strong>Full financial picture</strong><span>Investments, taxes, real estate, retirement, benefits, and more.</span></div>
+              <div className="heroPoint"><strong>Flat annual fee</strong><span>No AUM pricing, no commissions, and no surprise costs.</span></div>
+              <div className="heroPoint"><strong>One dedicated planner</strong><span>Work with the same advisor who knows your goals, tradeoffs, and timeline.</span></div>
+              <div className="heroPoint"><strong>Integrated strategy</strong><span>Taxes, investing, home decisions, retirement, and equity comp working together.</span></div>
             </div>
           </div>
-          <div className="heroMedia" aria-hidden="true" />
+          <div className="heroMedia" aria-hidden="true">
+            <div className="heroFloatingCard heroCardOne">
+              <span className="small">Typical client focus</span>
+              <strong>High-earning professionals, founders, and families with moving financial pieces.</strong>
+            </div>
+            <div className="heroFloatingCard heroCardTwo">
+              <span className="small">How clients use us</span>
+              <strong>Tax strategy, investing, real estate, retirement, and equity compensation planning.</strong>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -139,12 +148,20 @@ export function ServicesSection() {
   return (
     <section className="section sectionWhite">
       <div className="container">
-        <span className="sectionLabel">Services</span>
-        <h2 className="sectionHeading">Everything your money touches, planned together.</h2>
-        <p className="sectionIntro">Instead of narrow investment-only advice, you get one coordinated strategy for the decisions that actually move your financial life.</p>
+        <div className="splitIntro">
+          <div>
+            <span className="sectionLabel">Services</span>
+            <h2 className="sectionHeading">Everything your money touches, planned together.</h2>
+          </div>
+          <div>
+            <p className="sectionIntro">Instead of narrow investment-only advice, you get one coordinated strategy for the decisions that actually move your financial life. The service mix is broad because the real world is broad.</p>
+            <Link className="btn btnOutline" href="/services">View all services</Link>
+          </div>
+        </div>
         <div className="servicesGrid">
           {services.map((service) => (
-            <article className="card" key={service.title}>
+            <article className="card serviceCard" key={service.title}>
+              <div className="serviceIcon">•</div>
               <h3>{service.title}</h3>
               <p>{service.body}</p>
             </article>
@@ -160,8 +177,8 @@ export function WhySection() {
     <section className="section sectionForest">
       <div className="container">
         <span className="sectionLabel">Why Plentitude</span>
-        <h2 className="sectionHeading">Planning done with clarity, continuity, and zero product pressure.</h2>
-        <p className="sectionIntro">Flat-fee pricing, broad planning scope, and a relationship with a real advisor who stays with you over time.</p>
+        <h2 className="sectionHeading">Built for clients who want substance, not generic advice.</h2>
+        <p className="sectionIntro">Flat-fee pricing, broad planning scope, and a relationship with a real advisor who stays with you over time. This is planning with more ownership and less noise.</p>
         <div className="whyGrid">
           {[
             ['1', 'Flat-fee advantage', 'No percentage-of-assets pricing, no commissions, and no incentive to push products.'],
@@ -175,6 +192,79 @@ export function WhySection() {
               <p>{body}</p>
             </article>
           ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export function ProofSection() {
+  return (
+    <section className="section">
+      <div className="container">
+        <div className="proofPanel">
+          <div>
+            <span className="sectionLabel">Why clients choose this model</span>
+            <h2 className="sectionHeading">A better planning experience should pay for itself in clarity, confidence, and better decisions.</h2>
+            <p className="sectionIntro">The strongest flat-fee planning firms win because they make complex financial decisions feel coordinated and actionable. Plentitude is designed to do the same with a more personal, premium feel.</p>
+          </div>
+          <div className="proofStats">
+            <div className="proofStat"><strong>1 relationship</strong><span>One lead planner instead of fragmented specialist conversations.</span></div>
+            <div className="proofStat"><strong>0 AUM fees</strong><span>No asset-based pricing pressure as your wealth grows.</span></div>
+            <div className="proofStat"><strong>Full-life coverage</strong><span>Investing, tax strategy, real estate, retirement, equity comp, and more.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export function TestimonialSection() {
+  const quotes = [
+    ['Busy professionals', 'We wanted one place to think through taxes, investing, home decisions, and long-term planning without feeling sold to.'],
+    ['Dual-income families', 'The value is having a real roadmap and someone who can connect all the moving parts, not just manage investments.'],
+    ['Equity-comp households', 'For people dealing with RSUs, taxes, and larger planning decisions, coordinated advice matters a lot more than generic portfolio talk.'],
+  ]
+
+  return (
+    <section className="section sectionWhite">
+      <div className="container">
+        <span className="sectionLabel">Client perspective</span>
+        <h2 className="sectionHeading">The feeling clients are actually buying is clarity.</h2>
+        <p className="sectionIntro">These are placeholder-style testimonial blocks for positioning and layout, ready to be replaced with approved real testimonials later.</p>
+        <div className="grid3">
+          {quotes.map(([title, quote]) => (
+            <article className="card testimonialCard" key={title}>
+              <div className="quoteMark">“</div>
+              <p>{quote}</p>
+              <strong>{title}</strong>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export function MembershipPreviewSection() {
+  return (
+    <section className="section sectionWhite">
+      <div className="container">
+        <div className="membershipPanel">
+          <div>
+            <span className="sectionLabel">Membership model</span>
+            <h2 className="sectionHeading">Choose the level of planning depth that matches your complexity.</h2>
+            <p className="sectionIntro">Whether you need foundational planning or a more involved strategic relationship, the pricing model stays transparent and easier to trust than traditional AUM arrangements.</p>
+          </div>
+          <div className="membershipMiniGrid">
+            {pricing.map((tier) => (
+              <div className="miniTier" key={tier.title}>
+                <strong>{tier.title}</strong>
+                <span>{tier.yearOne} year 1</span>
+                <small>{tier.renewal} renewal</small>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
