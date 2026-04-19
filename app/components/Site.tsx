@@ -180,7 +180,7 @@ export function IntroStorySection() {
 
 export function WhySection() {
   return (
-    <section className="section sectionForest">
+    <section className="section sectionForest backgroundScene backgroundSceneAdvisors">
       <div className="container">
         <span className="sectionLabel">Why Plentitude</span>
         <h2 className="sectionHeading">Built for clients who want substance, not generic advice.</h2>
@@ -206,7 +206,7 @@ export function WhySection() {
 
 export function ProofSection() {
   return (
-    <section className="section">
+    <section className="section backgroundScene backgroundSceneHome">
       <div className="container">
         <div className="proofPanel">
           <div>
@@ -342,7 +342,7 @@ export function LifeMomentsSection() {
   ]
 
   return (
-    <section className="section">
+    <section className="section backgroundScene backgroundSceneLifestyle">
       <div className="container">
         <span className="sectionLabel">Life events</span>
         <h2 className="sectionHeading">Financial planning should adapt to the moments that actually change your life.</h2>
@@ -491,7 +491,7 @@ export function ComplianceSection() {
 
 export function CtaSection() {
   return (
-    <section className="section">
+    <section className="section backgroundScene backgroundSceneFamily">
       <div className="container">
         <div className="ctaPanel">
           <div>
