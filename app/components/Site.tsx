@@ -98,29 +98,14 @@ export function Hero() {
   return (
     <section className="hero">
       <div className="container">
-        <div className="heroPanel">
-          <div className="heroCopy">
-            <span className="eyebrow">Whole-life financial planning</span>
-            <h1>Make smarter money decisions with a plan built around your actual life.</h1>
-            <p>Plentitude Planning combines flat-fee fiduciary advice, one dedicated CFP® professional, and an integrated roadmap for investing, taxes, real estate, retirement, and major life decisions. It is planning designed to help busy households move faster with more confidence.</p>
+        <div className="heroPanel heroPanelSimple">
+          <div className="heroCopy heroCopyWide">
+            <span className="eyebrow">Flat-fee financial planning</span>
+            <h1>A cleaner, calmer way to plan your financial life.</h1>
+            <p>Plentitude Planning offers flat-fee fiduciary advice across investing, taxes, retirement, real estate, equity compensation, and major life decisions, with one dedicated planner and no AUM fees.</p>
             <div className="heroActions">
-              <Link className="btn btnPrimary" href="https://calendly.com/margohill">Book a free strategy session</Link>
-              <Link className="btn btnSecondary" href="/pricing">See pricing</Link>
-            </div>
-            <div className="heroPoints">
-              <div className="heroPoint"><strong>Flat annual fee</strong><span>No AUM pricing, no commissions, and no surprise costs.</span></div>
-              <div className="heroPoint"><strong>One dedicated planner</strong><span>Work with the same advisor who knows your goals, tradeoffs, and timeline.</span></div>
-              <div className="heroPoint"><strong>Integrated strategy</strong><span>Taxes, investing, home decisions, retirement, and equity comp working together.</span></div>
-            </div>
-          </div>
-          <div className="heroMedia" aria-hidden="true">
-            <div className="heroFloatingCard heroCardOne">
-              <span className="small">Typical client focus</span>
-              <strong>High-earning professionals, founders, and families with moving financial pieces.</strong>
-            </div>
-            <div className="heroFloatingCard heroCardTwo">
-              <span className="small">How clients use us</span>
-              <strong>Tax strategy, investing, real estate, retirement, and equity compensation planning.</strong>
+              <Link className="btn btnPrimary" href="https://calendly.com/margohill">Book a strategy session</Link>
+              <Link className="btn btnSecondary" href="/pricing">View pricing</Link>
             </div>
           </div>
         </div>
@@ -133,11 +118,11 @@ export function TrustRow() {
   return (
     <section className="trustRow">
       <div className="container">
-        <div className="trustGrid">
-          <div className="trustCard"><strong>No AUM fees, ever</strong><span>Keep more of your money working for you.</span></div>
-          <div className="trustCard"><strong>Fiduciary advice</strong><span>Objective guidance in your best interest.</span></div>
-          <div className="trustCard"><strong>Comprehensive planning</strong><span>Not just investments, your whole financial life.</span></div>
-          <div className="trustCard"><strong>Clear action plan</strong><span>Know exactly what to do next and why.</span></div>
+        <div className="trustGrid trustGridSimple">
+          <div className="trustCard"><strong>Flat fee</strong><span>No AUM pricing.</span></div>
+          <div className="trustCard"><strong>Fiduciary</strong><span>Objective advice.</span></div>
+          <div className="trustCard"><strong>Dedicated planner</strong><span>One relationship.</span></div>
+          <div className="trustCard"><strong>Full-life planning</strong><span>More than investments.</span></div>
         </div>
       </div>
     </section>
@@ -343,23 +328,23 @@ export function ProcessSection() {
 
 export function PricingSection() {
   return (
-    <section className="section sectionWhite">
+    <section className="section pricingDarkSection">
       <div className="container">
         <span className="sectionLabel">Pricing</span>
-        <h2 className="sectionHeading">Transparent flat-fee memberships.</h2>
-        <p className="sectionIntro">Structured to match the membership logic you wanted, with distinct tiers for foundational, strategic, and comprehensive planning.</p>
-        <div className="pricingGrid">
+        <h2 className="sectionHeading pricingHeading">Simple flat-fee memberships.</h2>
+        <p className="sectionIntro pricingIntro">Clear pricing, no asset-based fees, and planning depth that scales with complexity.</p>
+        <div className="pricingGrid pricingGridClean">
           {pricing.map((tier) => (
-            <article className="card" key={tier.title}>
+            <article className="pricingCardDark" key={tier.title}>
               <span className="priceTag">{tier.title}</span>
               <div className="price">{tier.yearOne}</div>
-              <p><strong>Year 1 initial planning</strong></p>
-              <p className="small">Renewal: {tier.renewal}</p>
+              <p className="small">Initial planning year</p>
+              <p className="renewalLine">Renewal {tier.renewal}</p>
               <p>{tier.body}</p>
-              <ul className="featureList">
-                {tier.features.map((feature) => <li key={feature}>{feature}</li>)}
+              <ul className="featureList featureListDark">
+                {tier.features.slice(0, 3).map((feature) => <li key={feature}>{feature}</li>)}
               </ul>
-              <Link className="btn btnPrimary" href="https://calendly.com/margohill">Book now</Link>
+              <Link className="btn btnPrimary" href="https://calendly.com/margohill">Get started</Link>
             </article>
           ))}
         </div>

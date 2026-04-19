@@ -159,7 +159,15 @@ img { max-width: 100%; height: auto; }
   overflow: hidden;
   box-shadow: var(--shadow);
 }
+.heroPanelSimple {
+  grid-template-columns: 1fr;
+  background: linear-gradient(180deg, #0f1715, #172622);
+}
 .heroCopy { padding: 58px 48px; }
+.heroCopyWide {
+  max-width: 760px;
+  padding: 72px 56px;
+}
 .eyebrow {
   display: inline-block;
   margin-bottom: 14px;
@@ -223,6 +231,9 @@ img { max-width: 100%; height: auto; }
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 18px;
+}
+.trustGridSimple .trustCard {
+  padding: 18px 16px;
 }
 .trustCard {
   background: var(--white);
@@ -387,6 +398,38 @@ img { max-width: 100%; height: auto; }
 .price { font-size: clamp(2rem, 4vw, 3rem); color: var(--forest); margin-bottom: 14px; }
 .small { color: var(--muted); font-size: 14px; }
 .featureList { padding-left: 18px; color: var(--muted); }
+.pricingDarkSection {
+  background: #0f1715;
+  color: rgba(255,255,255,0.86);
+}
+.pricingDarkSection .sectionLabel,
+.pricingDarkSection .sectionHeading,
+.pricingDarkSection .sectionIntro { color: var(--white); }
+.pricingHeading { max-width: none; }
+.pricingIntro { color: rgba(255,255,255,0.72); }
+.pricingGridClean { align-items: stretch; }
+.pricingCardDark {
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.24);
+}
+.pricingCardDark .price {
+  color: var(--white);
+}
+.pricingCardDark p,
+.pricingCardDark li,
+.pricingCardDark .small,
+.pricingCardDark .renewalLine {
+  color: rgba(255,255,255,0.72);
+}
+.featureListDark {
+  color: rgba(255,255,255,0.76);
+}
+.renewalLine {
+  margin-bottom: 14px;
+}
 .featureList li { margin-bottom: 10px; }
 .formGrid {
   display: grid;
