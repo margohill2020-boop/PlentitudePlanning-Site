@@ -204,15 +204,60 @@ export function ProofSection() {
       <div className="container">
         <div className="proofPanel">
           <div>
-            <span className="sectionLabel">Why clients choose this model</span>
-            <h2 className="sectionHeading">A better planning experience should pay for itself in clarity, confidence, and better decisions.</h2>
-            <p className="sectionIntro">The strongest flat-fee planning firms win because they make complex financial decisions feel coordinated and actionable. Plentitude is designed to do the same with a more personal, premium feel.</p>
+            <span className="sectionLabel">How Plentitude is different</span>
+            <h2 className="sectionHeading">What clients want is objective guidance, not pressure, product bias, or asset-gathering incentives.</h2>
+            <p className="sectionIntro">This section now leans much closer to the Domain-style comparison framing you asked for, with clearer contrast against traditional advisors and generic advice models.</p>
           </div>
           <div className="proofStats">
-            <div className="proofStat"><strong>1 relationship</strong><span>One lead planner instead of fragmented specialist conversations.</span></div>
-            <div className="proofStat"><strong>0 AUM fees</strong><span>No asset-based pricing pressure as your wealth grows.</span></div>
-            <div className="proofStat"><strong>Full-life coverage</strong><span>Investing, tax strategy, real estate, retirement, equity comp, and more.</span></div>
+            <div className="proofStat"><strong>We don’t require you to move your assets</strong><span>Advice can start with the accounts and structure you already have.</span></div>
+            <div className="proofStat"><strong>We don’t push products</strong><span>No sales pressure, no product quotas, and no hidden agenda.</span></div>
+            <div className="proofStat"><strong>We don’t charge AUM fees</strong><span>Flat-fee pricing stays cleaner and easier to understand as your wealth grows.</span></div>
+            <div className="proofStat"><strong>We don’t get paid based on products</strong><span>That keeps the advice more objective and aligned with your actual goals.</span></div>
+            <div className="proofStat"><strong>We don’t have minimums</strong><span>The relationship is based on fit and planning need, not just account size.</span></div>
+            <div className="proofStat"><strong>We don’t judge, ever</strong><span>Clients come in with messy situations all the time. The point is progress, not shame.</span></div>
           </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export function TopicGridSection() {
+  const topics = [
+    ['Financial Foundations', '/planning/financial-foundations'],
+    ['Financial Wellness', '/planning/financial-wellness'],
+    ['Financial Planning', '/planning/financial-planning'],
+    ['Investment Management', '/planning/investment-management'],
+    ['Cash Flow', '/planning/cash-flow'],
+    ['Tax Planning', '/planning/tax-planning'],
+    ['Insurance Planning', '/planning/insurance-planning'],
+    ['Life’s Milestones', '/planning/lifes-milestones'],
+    ['Family Planning', '/planning/family-planning'],
+    ['Combining Finances', '/planning/combining-finances'],
+    ['Education Planning', '/planning/education-planning'],
+    ['Retirement Planning', '/planning/retirement-planning'],
+    ['Estate Planning', '/planning/estate-planning'],
+    ['Real Estate', '/planning/real-estate'],
+    ['Planning for a Baby', '/planning/planning-for-a-baby'],
+    ['Career', '/planning/career'],
+    ['Equity Compensation', '/planning/equity-compensation'],
+    ['Career Planning', '/planning/career-planning'],
+  ]
+
+  return (
+    <section className="section sectionWhite">
+      <div className="container">
+        <span className="sectionLabel">Planning areas</span>
+        <h2 className="sectionHeading">Explore the full range of planning topics we help clients navigate.</h2>
+        <p className="sectionIntro">This is the missing depth layer you pointed out. It gives Plentitude a broader content footprint and a clearer view into how planning work is organized across life stages and financial decisions.</p>
+        <div className="servicesGrid">
+          {topics.map(([title, href]) => (
+            <article className="card serviceCard" key={href}>
+              <h3>{title}</h3>
+              <p>Dedicated page for {title.toLowerCase()} guidance, decisions, and strategy considerations.</p>
+              <Link className="btn btnOutline" href={href}>View topic</Link>
+            </article>
+          ))}
         </div>
       </div>
     </section>
