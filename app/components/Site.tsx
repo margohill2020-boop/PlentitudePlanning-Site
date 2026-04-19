@@ -88,7 +88,7 @@ export function Header() {
           <Link href="/referrals">Referrals</Link>
           <Link href="/contact">Contact</Link>
         </div>
-        <Link className="btn btnPrimary" href="/contact">Book a strategy session</Link>
+        <Link className="btn btnPrimary" href="https://calendly.com/margohill">Book a strategy session</Link>
       </div>
     </nav>
   )
@@ -104,7 +104,7 @@ export function Hero() {
             <h1>Build a financial plan that actually fits your life.</h1>
             <p>Plentitude Planning gives you flat-fee, fiduciary financial advice across investing, taxes, retirement, real estate, equity compensation, insurance, estate planning, and cash flow. One dedicated CFP® professional, one integrated plan, no AUM fees.</p>
             <div className="heroActions">
-              <Link className="btn btnPrimary" href="/contact">Start with a free strategy session</Link>
+              <Link className="btn btnPrimary" href="https://calendly.com/margohill">Start with a free strategy session</Link>
               <Link className="btn btnSecondary" href="/services">Explore services</Link>
             </div>
             <div className="heroPoints">
@@ -224,7 +224,7 @@ export function PricingSection() {
               <ul className="featureList">
                 {tier.features.map((feature) => <li key={feature}>{feature}</li>)}
               </ul>
-              <Link className="btn btnPrimary" href="/contact">Book now</Link>
+              <Link className="btn btnPrimary" href="https://calendly.com/margohill">Book now</Link>
             </article>
           ))}
         </div>
@@ -265,7 +265,7 @@ export function ContactForm({ title = 'Book a strategy session', referral = fals
         {!referral && <select className="select full" name="membershipInterest" defaultValue=""><option value="" disabled>Select membership interest</option><option>Essential</option><option>Strategic</option><option>Comprehensive</option></select>}
         {!referral && <textarea className="textarea full" name="details" placeholder="Tell us about your goals, current situation, and what you want help with." />}
         <div className="full">
-          <button type="submit" className="btn btnPrimary">{referral ? 'Generate referral link' : 'Continue to booking'}</button>
+          {referral ? <button type="submit" className="btn btnPrimary">Generate referral link</button> : <a className="btn btnPrimary" href="https://calendly.com/margohill">Continue to booking</a>}
         </div>
       </form>
     </div>
@@ -316,7 +316,7 @@ export function CtaSection() {
             <h2>Ready to turn Plentitude Planning into a full production website?</h2>
             <p>This app now has the right page structure, pricing tiers, referral page, contact flow, and disclosure sections. The last major missing piece is your actual booking integration and final compliance review.</p>
             <div className="heroActions">
-              <Link className="btn btnPrimary" href="/contact">Start booking flow</Link>
+              <Link className="btn btnPrimary" href="https://calendly.com/margohill">Start booking flow</Link>
               <Link className="btn btnSecondary" href="/pricing">See pricing</Link>
             </div>
           </div>
