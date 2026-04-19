@@ -380,28 +380,6 @@ export function SimpleHero({ label, title, intro }: { label: string, title: stri
   )
 }
 
-export function CalculatorPage({ title, description, fields }: { title: string, description: string, fields: { label: string, placeholder: string }[] }) {
-  return (
-    <section className="section">
-      <div className="container">
-        <div className="card">
-          <h2>{title}</h2>
-          <p>{description}</p>
-          <div className="formGrid">
-            {fields.map((field) => (
-              <input key={field.label} className="input" placeholder={field.placeholder} aria-label={field.label} />
-            ))}
-            <div className="full">
-              <button type="button" className="btn btnPrimary">Calculate</button>
-            </div>
-          </div>
-          <p className="small">This is a front-end calculator shell ready for live calculation logic in the next pass.</p>
-        </div>
-      </div>
-    </section>
-  )
-}
-
 export function Footer() {
   return (
     <footer className="footer">

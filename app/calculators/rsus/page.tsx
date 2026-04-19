@@ -1,5 +1,6 @@
-import { Header, SimpleHero, CalculatorPage, Footer } from '../../components/Site'
+import { Header, SimpleHero, Footer } from '../../components/Site'
+import CalculatorClient from '../../components/CalculatorClient'
 
 export default function Page() {
-  return <><Header /><main><SimpleHero label="Calculator" title="RSUs Calculator" intro="Estimate vesting value, taxes withheld, and net proceeds from restricted stock units." /><CalculatorPage title="RSUs Calculator" description="Use this shell for RSU tax and cash-flow planning." fields={[{ label: 'Shares vesting', placeholder: 'Number of RSUs vesting' }, { label: 'Current price', placeholder: 'Current stock price' }, { label: 'Withholding rate', placeholder: 'Estimated withholding %' }, { label: 'Additional tax rate', placeholder: 'Estimated marginal tax rate' }]} /></main><Footer /></>
+  return <><Header /><main><SimpleHero label="Calculator" title="RSUs Calculator" intro="Estimate vesting value, taxes withheld, and net proceeds from restricted stock units." /><CalculatorClient type="rsus" title="RSUs Calculator" description="Estimate gross vesting value, withholding, and net value." fields={[{ key: 'shares', label: 'Shares vesting', placeholder: '2000', defaultValue: 2000 }, { key: 'price', label: 'Current stock price', placeholder: '55', defaultValue: 55 }, { key: 'withholding', label: 'Withholding rate (%)', placeholder: '22', defaultValue: 22 }, { key: 'tax', label: 'Estimated total tax rate (%)', placeholder: '37', defaultValue: 37 }]} /></main><Footer /></>
 }
