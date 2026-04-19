@@ -32,21 +32,24 @@ const pricing = [
     title: 'Essential',
     yearOne: '$3,000',
     renewal: '$1,800',
-    body: 'Best for professionals and households who want a foundational plan and ongoing accountability.',
+    body: 'For individuals and households who want a clear foundational plan, expert guidance, and a more affordable way to get comprehensive advice started.',
+    fit: 'Best for clients with straightforward but important planning needs.',
     features: ['Initial planning year with full roadmap', 'Dedicated CFP® professional', 'Investments, taxes, retirement, and cash flow guidance', 'Ongoing renewal support and plan updates'],
   },
   {
     title: 'Strategic',
     yearOne: '$4,500',
     renewal: '$3,500',
-    body: 'Built for clients with more moving parts, including advanced tax, equity, or real estate decisions.',
+    body: 'For clients with more complexity, including real estate decisions, equity compensation, or a wider mix of planning questions that need deeper coordination.',
+    fit: 'Best for clients with several moving parts that benefit from ongoing strategy.',
     features: ['Everything in Essential', 'Expanded strategy support for real estate and complex planning', 'Deeper scenario analysis and implementation guidance', 'Ongoing strategic reviews throughout the year'],
   },
   {
     title: 'Comprehensive',
     yearOne: '$9,000',
     renewal: '$7,000',
-    body: 'For high-complexity households, founders, executives, and families needing white-glove planning.',
+    body: 'For high-complexity households, founders, executives, and families who want a more involved planning relationship across multiple major decisions.',
+    fit: 'Best for clients who want highly customized guidance across the full picture.',
     features: ['Everything in Strategic', 'Comprehensive multi-area financial coordination', 'Advanced planning across taxes, entities, and estate coordination', 'Priority support and highly customized strategy work'],
   },
 ]
@@ -331,18 +334,19 @@ export function PricingSection() {
     <section className="section pricingDarkSection">
       <div className="container">
         <span className="sectionLabel">Pricing</span>
-        <h2 className="sectionHeading pricingHeading">Simple flat-fee memberships.</h2>
-        <p className="sectionIntro pricingIntro">Clear pricing, no asset-based fees, and planning depth that scales with complexity.</p>
+        <h2 className="sectionHeading pricingHeading">Choose the membership that matches your planning complexity.</h2>
+        <p className="sectionIntro pricingIntro">Plentitude Planning uses flat-fee memberships instead of charging a percentage of your assets. That means pricing is easier to understand, easier to compare, and not tied to gathering your portfolio.</p>
         <div className="pricingGrid pricingGridClean">
           {pricing.map((tier) => (
             <article className="pricingCardDark" key={tier.title}>
               <span className="priceTag">{tier.title}</span>
               <div className="price">{tier.yearOne}</div>
-              <p className="small">Initial planning year</p>
-              <p className="renewalLine">Renewal {tier.renewal}</p>
+              <p className="small">Year 1 initial planning</p>
+              <p className="renewalLine">Renewal <strong>{tier.renewal}</strong></p>
               <p>{tier.body}</p>
+              <p className="small"><strong>Who this is for:</strong> {tier.fit}</p>
               <ul className="featureList featureListDark">
-                {tier.features.slice(0, 3).map((feature) => <li key={feature}>{feature}</li>)}
+                {tier.features.map((feature) => <li key={feature}>{feature}</li>)}
               </ul>
               <Link className="btn btnPrimary" href="https://calendly.com/margohill">Get started</Link>
             </article>
