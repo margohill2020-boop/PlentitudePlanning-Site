@@ -247,7 +247,7 @@ img { max-width: 100%; height: auto; }
 }
 .trustCard span { color: var(--muted); font-size: 13px; }
 
-.grid3, .faqGrid, .processGrid, .servicesGrid {
+.grid3, .faqGrid, .processGrid, .servicesGrid, .momentGrid {
   display: grid;
   gap: 20px;
   margin-top: 34px;
@@ -256,6 +256,7 @@ img { max-width: 100%; height: auto; }
 .processGrid { grid-template-columns: repeat(3, 1fr); }
 .faqGrid { grid-template-columns: repeat(2, 1fr); }
 .grid3 { grid-template-columns: repeat(3, 1fr); }
+.momentGrid { grid-template-columns: repeat(3, 1fr); }
 .splitIntro, .proofPanel, .membershipPanel, .ctaPanel {
   display: grid;
   grid-template-columns: 1fr 0.9fr;
@@ -269,6 +270,24 @@ img { max-width: 100%; height: auto; }
   border: 1px solid rgba(255,255,255,0.55);
   box-shadow: var(--shadow);
   backdrop-filter: blur(10px);
+}
+.momentCard {
+  background: rgba(255,255,255,0.84);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.55);
+  box-shadow: var(--shadow);
+}
+.momentImage {
+  min-height: 260px;
+  background-size: cover;
+  background-position: center;
+}
+.momentBody {
+  padding: 24px;
+}
+.momentBody h3 {
+  margin-bottom: 10px;
 }
 .serviceIcon { display: none; }
 .whyGrid {
@@ -436,7 +455,7 @@ img { max-width: 100%; height: auto; }
 }
 
 @media (max-width: 1080px) {
-  .heroPanel, .servicesGrid, .whyGrid, .processGrid, .faqGrid, .pricingGrid, .footerGrid, .formGrid, .splitIntro, .proofPanel, .membershipPanel, .ctaPanel, .trustGrid {
+  .heroPanel, .servicesGrid, .whyGrid, .processGrid, .faqGrid, .pricingGrid, .footerGrid, .formGrid, .splitIntro, .proofPanel, .membershipPanel, .ctaPanel, .trustGrid, .momentGrid {
     grid-template-columns: 1fr 1fr;
   }
   .heroPoints { grid-template-columns: 1fr; }
@@ -444,7 +463,7 @@ img { max-width: 100%; height: auto; }
 
 @media (max-width: 740px) {
   .navInner { flex-direction: column; align-items: flex-start; }
-  .heroPanel, .servicesGrid, .whyGrid, .processGrid, .faqGrid, .pricingGrid, .footerGrid, .formGrid, .splitIntro, .proofPanel, .membershipPanel, .ctaPanel, .trustGrid {
+  .heroPanel, .servicesGrid, .whyGrid, .processGrid, .faqGrid, .pricingGrid, .footerGrid, .formGrid, .splitIntro, .proofPanel, .membershipPanel, .ctaPanel, .trustGrid, .momentGrid {
     grid-template-columns: 1fr;
   }
   .heroCopy, .heroCopyWide { padding: 38px 24px; }

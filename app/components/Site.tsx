@@ -304,6 +304,47 @@ export function MembershipPreviewSection() {
   )
 }
 
+export function LifeMomentsSection() {
+  const moments = [
+    {
+      title: 'Buying or upgrading a home',
+      body: 'Work through affordability, mortgage tradeoffs, liquidity, and how a home decision fits into the rest of your plan.',
+      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80',
+    },
+    {
+      title: 'Growing your family',
+      body: 'Plan around childcare costs, insurance, savings, parental leave, and the financial changes that come with a new chapter.',
+      image: 'https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1200&q=80',
+    },
+    {
+      title: 'Navigating career and equity decisions',
+      body: 'Model compensation shifts, RSUs, stock options, job transitions, and the tax impact of major professional moves.',
+      image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80',
+    },
+  ]
+
+  return (
+    <section className="section">
+      <div className="container">
+        <span className="sectionLabel">Life events</span>
+        <h2 className="sectionHeading">Financial planning should adapt to the moments that actually change your life.</h2>
+        <p className="sectionIntro">The best planning relationships help with real transitions, not just abstract portfolio conversations. This section gives the homepage more of the real-life depth you were asking for.</p>
+        <div className="momentGrid">
+          {moments.map((moment) => (
+            <article className="momentCard" key={moment.title}>
+              <div className="momentImage" style={{ backgroundImage: `url('${moment.image}')` }} />
+              <div className="momentBody">
+                <h3>{moment.title}</h3>
+                <p>{moment.body}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 export function ProcessSection() {
   return (
     <section className="section">
