@@ -84,6 +84,7 @@ export function Header() {
         <div className="navLinks">
           <Link href="/services">Services</Link>
           <Link href="/pricing">Pricing</Link>
+          <Link href="/resources">Resources</Link>
           <Link href="/referrals">Referrals</Link>
           <Link href="/contact">Contact</Link>
         </div>
@@ -256,15 +257,15 @@ export function ContactForm({ title = 'Book a strategy session', referral = fals
     <div className="card">
       <h3>{title}</h3>
       <p>{referral ? 'Enter your email to generate a referral link and start sharing Plentitude Planning with friends, family, or clients.' : 'Use this form as the lead capture and booking entry point. Replace the button destination with your live booking integration once you choose it.'}</p>
-      <form className="formGrid">
-        <input className="input" placeholder="First name" />
-        <input className="input" placeholder="Last name" />
-        <input className="input full" type="email" placeholder="Email address" />
-        {!referral && <input className="input full" placeholder="Phone" />}
-        {!referral && <select className="select full" defaultValue=""><option value="" disabled>Select membership interest</option><option>Essential</option><option>Strategic</option><option>Comprehensive</option></select>}
-        {!referral && <textarea className="textarea full" placeholder="Tell us about your goals, current situation, and what you want help with." />}
+      <form className="formGrid" action="mailto:margoh4@aol.com" method="post" encType="text/plain">
+        <input className="input" name="firstName" placeholder="First name" />
+        <input className="input" name="lastName" placeholder="Last name" />
+        <input className="input full" type="email" name="email" placeholder="Email address" />
+        {!referral && <input className="input full" name="phone" placeholder="Phone" />}
+        {!referral && <select className="select full" name="membershipInterest" defaultValue=""><option value="" disabled>Select membership interest</option><option>Essential</option><option>Strategic</option><option>Comprehensive</option></select>}
+        {!referral && <textarea className="textarea full" name="details" placeholder="Tell us about your goals, current situation, and what you want help with." />}
         <div className="full">
-          <button type="button" className="btn btnPrimary">{referral ? 'Generate referral link' : 'Continue to booking'}</button>
+          <button type="submit" className="btn btnPrimary">{referral ? 'Generate referral link' : 'Continue to booking'}</button>
         </div>
       </form>
     </div>
@@ -331,6 +332,76 @@ export function CtaSection() {
   )
 }
 
+export function ResourceGrid() {
+  const items = [
+    ['Blog', '/blog', 'Original articles and planning insights for taxes, investing, retirement, and major life decisions.'],
+    ['Webinars', '/webinars', 'On-demand and upcoming educational sessions for prospects and clients.'],
+    ['FAQs', '/faqs', 'Answers to common planning, pricing, and membership questions.'],
+    ['Home Affordability Calculator', '/calculators/home-affordability', 'Estimate a home price range based on income, debt, down payment, and monthly budget.'],
+    ['Cost of Advice Calculator', '/calculators/cost-of-advice', 'Compare flat-fee planning against long-term AUM pricing.'],
+    ['Stock Options Calculator', '/calculators/stock-options', 'Model scenarios for exercising stock options and estimate value outcomes.'],
+    ['RSUs Calculator', '/calculators/rsus', 'Estimate vesting value, taxes, and take-home outcomes for restricted stock units.'],
+    ['Retirement Calculator', '/calculators/retirement', 'Project savings growth and retirement readiness based on timeline and contributions.'],
+    ['529 Plan Calculator', '/calculators/529-plan', 'Estimate education savings growth and target funding progress.'],
+    ['Roth IRA Calculator', '/calculators/roth-ira', 'Compare ongoing Roth contributions and tax-free growth scenarios.'],
+    ['Home Equity Calculator', '/calculators/home-equity', 'Estimate current home equity using value, balance, and appreciation assumptions.'],
+    ['Asset Allocation Calculator', '/calculators/asset-allocation', 'Explore portfolio mix scenarios across stocks, bonds, cash, and alternatives.'],
+  ]
+
+  return (
+    <section className="section sectionWhite">
+      <div className="container">
+        <span className="sectionLabel">Resources</span>
+        <h2 className="sectionHeading">Planning tools, education, and interactive calculators.</h2>
+        <p className="sectionIntro">This section mirrors the resource depth you asked for, with a hub for educational content and interactive planning tools.</p>
+        <div className="servicesGrid">
+          {items.map(([title, href, body]) => (
+            <article className="card" key={href}>
+              <h3>{title}</h3>
+              <p>{body}</p>
+              <Link className="btn btnOutline" href={href}>Open</Link>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export function SimpleHero({ label, title, intro }: { label: string, title: string, intro: string }) {
+  return (
+    <section className="section sectionWhite">
+      <div className="container">
+        <span className="sectionLabel">{label}</span>
+        <h1 className="sectionHeading">{title}</h1>
+        <p className="sectionIntro">{intro}</p>
+      </div>
+    </section>
+  )
+}
+
+export function CalculatorPage({ title, description, fields }: { title: string, description: string, fields: { label: string, placeholder: string }[] }) {
+  return (
+    <section className="section">
+      <div className="container">
+        <div className="card">
+          <h2>{title}</h2>
+          <p>{description}</p>
+          <div className="formGrid">
+            {fields.map((field) => (
+              <input key={field.label} className="input" placeholder={field.placeholder} aria-label={field.label} />
+            ))}
+            <div className="full">
+              <button type="button" className="btn btnPrimary">Calculate</button>
+            </div>
+          </div>
+          <p className="small">This is a front-end calculator shell ready for live calculation logic in the next pass.</p>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 export function Footer() {
   return (
     <footer className="footer">
@@ -338,6 +409,7 @@ export function Footer() {
         <div>
           <strong>Plentitude Planning</strong>
           <p>Flat-fee financial planning for investing, taxes, retirement, real estate, and more.</p>
+          <p><Link href="/privacy">Privacy Policy</Link> · <Link href="/terms">Terms of Use</Link></p>
         </div>
         <div>
           <p>Built as a custom website concept inspired by the structure of leading flat-fee planning firms, with original branding and copy for Plentitude Planning.</p>
