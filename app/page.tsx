@@ -1,4 +1,4 @@
-import { Header, Hero, TrustRow, WhySection, ProofSection, LifeMomentsSection, PricingSection, CtaSection, Footer } from './components/Site'
+import { Header, Hero, TrustRow, IntroStorySection, WhySection, ProofSection, LifeMomentsSection, PricingSection, CtaSection, Footer } from './components/Site'
 
 export default function HomePage() {
   return (
@@ -7,6 +7,7 @@ export default function HomePage() {
       <main>
         <Hero />
         <TrustRow />
+        <IntroStorySection />
         <WhySection />
         <ProofSection />
         <LifeMomentsSection />

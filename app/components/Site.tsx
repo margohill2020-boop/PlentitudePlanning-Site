@@ -160,6 +160,24 @@ export function ServicesSection() {
   )
 }
 
+export function IntroStorySection() {
+  return (
+    <section className="section">
+      <div className="container">
+        <div className="proofPanel">
+          <div>
+            <span className="sectionLabel">Why people come to us</span>
+            <h2 className="sectionHeading">Most people are not looking for more financial noise. They want clearer decisions.</h2>
+          </div>
+          <div>
+            <p className="sectionIntro">They want to know how a home decision affects their retirement timeline. How equity compensation changes their tax strategy. Whether they are saving enough, spending well, and making choices that actually line up with the life they want. That is the gap Plentitude Planning is designed to fill.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 export function WhySection() {
   return (
     <section className="section sectionForest">
